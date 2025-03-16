@@ -12,3 +12,10 @@ query 2
 select p.*
 from posts as p
 where not exists (SELECT 1 FROM likes AS l WHERE l.post_id = p.id);
+
+query 3 
+
+select p.*, count(l.post_id) as numero_like
+from posts as p
+inner join likes as l on l.post_id = p.id
+group by p.id;
