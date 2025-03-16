@@ -27,3 +27,12 @@ from users as u
 inner join medias as m on u.id = m.user_id
 group by u.username, m.user_id
 order by media_caricati desc;
+
+query 5 
+
+select u.username, count(l.user_id) as like_ricevuti
+from users as u 
+left join posts as p on u.id = p.user_id 
+left join likes as l on p.id = l.post_id
+group by u.username
+order by like_ricevuti desc;
