@@ -6,3 +6,9 @@ select distinct u.*
 from medias as m
 inner join users as u on m.user_id = u.id
 where m.type = 'video';
+
+query 2 
+
+select p.*
+from posts as p
+where not exists (SELECT 1 FROM likes AS l WHERE l.post_id = p.id);
