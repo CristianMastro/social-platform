@@ -1,0 +1,8 @@
+use db_socialplatform
+
+query 1 
+
+select distinct u.*
+from medias as m
+inner join users as u on m.user_id = u.id
+where m.type = 'video';
