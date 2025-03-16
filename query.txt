@@ -19,3 +19,11 @@ select p.*, count(l.post_id) as numero_like
 from posts as p
 inner join likes as l on l.post_id = p.id
 group by p.id;
+
+query 4 
+
+select u.username, count(m.user_id) as media_caricati
+from users as u
+inner join medias as m on u.id = m.user_id
+group by u.username, m.user_id
+order by media_caricati desc;
